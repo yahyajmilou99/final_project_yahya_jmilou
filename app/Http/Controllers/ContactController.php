@@ -15,13 +15,15 @@ class ContactController extends Controller
 
     public function handleContact(Request $request)
     {
-        $validatedData = $request->validate([
+        $data = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
-            'message' => 'required|string|min:10',
+            'message' => 'required|string',
         ]);
-
-        Mail::to('yahyajmilou06@gmail.com')->send(new ContactMail($validatedData));
+        
+        // dd($request);
+        Mail::to('yahyajmilou06@gmail.com')->send(new ContactMail($data));
+        // dd("salam");
 
         return back()->with('success', 'Your message has been sent!');
     }

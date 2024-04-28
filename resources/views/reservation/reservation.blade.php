@@ -50,11 +50,7 @@
             <div id='calendar' class=" h-[80vh] w-[60vw] md:flex hidden"></div>
         </div>
     </div>
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
+    
     
     <!-- Modal toggle -->
     <button data-modal-target="default-modal" data-modal-toggle="default-modal"
@@ -79,7 +75,7 @@
                         @endforeach
                     </select>
                     <label for="">Your Name</label>
-                    <input name="title" required placeholder="Event Title" type="text">
+                    <input name="title" required placeholder="Enter Your Name" type="text">
 
                     <label for="">Reservation Day</label>
                     <input name="dateStart" min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" id="date-start"

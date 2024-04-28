@@ -43,20 +43,20 @@
         <span class="w-[100%] flex items-center justify-center text-[40px] p-8 font-bold">
             <h1>Contact <span class="text-[#2c3576]">Us</span></h1>
         </span>
-        <div class="w-[100%] p-[40px] flex justify-between">
-            <form action="{{ route("send.email") }}" method="post" class="flex flex-col gap-3 bg-[#eeeeee] w-[45%] p-10 items-center">
+        <div class="w-[100%] p-[40px] flex md:flex-row flex-col justify-between">
+            <form action="{{ route("send.email") }}" method="post" class="flex flex-col gap-3 bg-[#eeeeee] md:w-[40%] w-[95%] rounded-[10px] p-10 items-center">
                 @csrf
                 <label for="">Enter your Name</label>
-                <input type="text" name="name" id="" class="w-[60%] rounded-[10px]">
+                <input type="text" name="name" id="" class="md:w-[60%] w-[90%] rounded-[10px]">
                 
                 <label for="">Enter Your Email </label>
-                <input type="email" name="email" id="" class="w-[60%] rounded-[10px]">
+                <input type="email" name="email" id="" class="md:w-[60%] w-[90%] rounded-[10px]">
     
                 <label for="">Enter Your Message</label>
-                <textarea name="message" id="" cols="30" rows="6" class="w-[60%] rounded-[10px]"></textarea>
-                <button type="submit" class="mt-8 bg-[#2c3576] p-2 rounded-[25px] outline outline-black w-[30%] text-white font-semibold ">Send Message</button>
+                <textarea name="message" id="" cols="30" rows="6" class="md:w-[60%] w-[90%] rounded-[10px]"></textarea>
+                <button type="submit" class="mt-8 bg-[#2c3576] p-2 rounded-[25px] outline outline-black md:w-[45%] w-[90%] text-white font-semibold ">Send Message</button>
             </form>
-            <img src="{{ asset("images/file.png") }}" alt="" class="w-[45%]">
+            <img src="{{ asset("images/file.png") }}" alt="" class="w-[45%] md:block hidden">
         </div>
     </div>
 @endsection

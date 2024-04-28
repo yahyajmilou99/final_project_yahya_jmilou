@@ -40,51 +40,56 @@
                 </div>
             </nav>
         </header>
-        <div class="flex justify-between items-start p-8">
-            <div class=" w-[45%] flex flex-col gap-5 items-center justify-center ">
+        <div class="flex gap-7  items-start p-10">
+            <div class=" w-[45%] flex flex-col gap-5 items-center  justify-center">
                 <h1 class="text-[30px] font-bold">Create Menu</h1>
-                <form class="flex flex-col gap-4 w-[90%]  items-center justify-center " action="{{ route('menu.store') }}"
-                    method="post" enctype="multipart/form-data">
+                <form class="flex flex-col gap-4 w-[100%]  items-center justify-center p-4 "
+                    action="{{ route('menu.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="flex flex-col gap-2 w-[40%] ">
+                    <div class="flex flex-col gap-2 w-[70%] ">
                         <label for="name">Enter Menu's Name</label>
                         <input class="w-[100%]  " type="text" name="name" id="name">
                     </div>
 
-                    <div class="flex flex-col gap-2 w-[40%] ">
+                    <div class="flex flex-col gap-2 w-[70%] ">
                         <label for="price">Enter Menu's Price</label>
                         <input class="w-[100%]  " type="number" name="price" id="price">
                     </div>
 
-                    <div class="flex flex-col gap-2 w-[40%] ">
+                    <div class="flex flex-col gap-2 w-[70%] ">
                         <label for="desc">Enter Menu's Description</label>
                         <input class="w-[100%]  " type="text" name="description" id="desc">
                     </div>
 
-                    <div class="flex flex-col gap-2 w-[40%] ">
+                    <div class=" flex-col gap-2 w-[70%] hidden ">
                         <label for="rating">Enter Menu's Rating</label>
                         <input class="w-[100%]  " type="number" name="rating" id="rating">
                     </div>
 
-                    <div class="flex flex-col gap-2 w-[40%]">
+                    <div class="flex flex-col gap-2 w-[70%]">
                         <label for="img">Enter Menu's Image</label>
                         <input class="w-[100%]  " type="file" name="img" id="">
                     </div>
 
-                    <button class="w-[40%] rounded bg-[#2c3576] p-3">Submit</button>
+                    <button class="w-[70%] rounded bg-[#2c3576] p-3">Submit</button>
                 </form>
             </div>
 
-            <div class=" p-[20px] gap-5 w-[45%] h-[fit-content] flex flex-wrap" >
+            <div class=" p-[20px] gap-5 w-[55%] h-[fit-content]  flex flex-wrap justify-center">
                 @foreach ($menus as $menu)
-                    <div class=" w-[40%] bg-white flex flex-col gap-2 p-3 rounded-[20px] outline  h-[40%]  ">
+                    <div class=" w-[46%] bg-white flex flex-col gap-7 p-6 rounded-[20px] outline">
                         <img src="{{ asset('storage/images/' . $menu->img) }}" class="w-[300px] h-[200px]" alt="">
                         <div>
-                            <h1 class="font-semibold text-[18px]">{{ $menu->name }}</h1>
-                            <h1>{{ $menu->price }} dh</h1>
-                            <p><span>Rating :</span> {{ $menu->rating }}/5</p>
+                            <h1 class="font-bold text-[22px]">{{ $menu->name }}</h1>
+                            <h1 class="text-[17px]">{{ $menu->price }} dh</h1>
+                            <p class="text-[17px]"><span>Rating :</span> {{ $menu->rating }}/5</p>
                         </div>
+                        <form action="{{ route('menu.destroy', $menu) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="bg-red-600 px-3 py-2 w-[90%] rounded-full">Delete</button>
+                        </form>
                     </div>
                 @endforeach
             </div>

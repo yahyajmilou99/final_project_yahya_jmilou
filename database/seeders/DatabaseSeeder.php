@@ -16,8 +16,10 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Yahya Jmilou',
+            'email' => 'yahyajmilou@gmail.com',
+            "role"=>"admin",
+            "password"=>"12341234"
         ]);
         $this->call([
             ZoneSeeder::class

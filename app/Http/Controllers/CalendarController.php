@@ -24,7 +24,7 @@ class CalendarController extends Controller
         Calendar::create($data);
 
 
-        return back();
+        return back()->with('success', 'Your reservation is Confirmed!');
     }
 
 

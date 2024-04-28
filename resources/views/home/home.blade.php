@@ -40,7 +40,6 @@
         </nav>
     </header>
     <main>
-
         <section class="section1 hero bg-[#eeeeee]">
             <div class="leftPart">
                 <h1 class="sec1Title font-bold">ENJOY YOUR HEALTHY DELICIOUS FOOD</h1>
@@ -54,7 +53,6 @@
             </div>
             <img src="{{ asset('images/file.png') }}" alt="" class="sec1Img md:w-[450px] w-[340px]">
         </section>
-
         <section
             class="section2 flex items-center flex-col md:gap-10 gap-8 justify-center bg-[#ffffff] md:p-[50px] pt-[35px] pb-[35px]">
             <h1 class="text-[40px] font-bold">Our <span class="text-[#2c3576]">Restaurant</span></h1>
@@ -128,8 +126,28 @@
                 </button>
             </div>
         </section>
-
-        <section class="section11 bg-[#eeeeee]">
+        <section class="section5">
+            <div class="sec5Top">
+                <p class="text-[32px]">OUR MENU</p>
+                <h1 class="font-bold">CHECK OUR <span>GEEK MENU</span></h1>
+            </div>
+            <div class="sec5bottom">
+                <div class="menu font-bold">
+                    <p >Menu</p>
+                </div>
+                <div class="menuContent">
+                    @foreach ($menus as $menu)
+                        <div class="meal">
+                            <img src="{{ asset('storage/images/' . $menu->img) }}" alt="" width="250px">
+                            <h3 class="font-bold text-[32px]">{{ $menu->name }}</h3>
+                            <p class="text-center">{{ $menu->description }}</p>
+                            <h6 class="font-bold">{{ $menu->price }} Dhs</h6>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        <section class="section11 bg-white">
             <div class="sec11Top">
                 <h1 class="font-bold text-[30px]">Our <span class="text-[#2c3576]">Location</span></h1>
             </div>
@@ -213,7 +231,7 @@
                 <div class="footerParttxt">
                     <h4>Opening Hours</h4>
                     <div>
-                        <p>Mon-Sat: 11AM - 23pm</p>
+                        <p>Mon-Sat: 9AM - 6pm</p>
                         <p>Sunday: Closed</p>
                     </div>
                 </div>
@@ -238,8 +256,8 @@
             </div>
         </div>
         <div class="footerBottom">
-            <p>Copyright <span>Yummy</span> All Rights Reserved</p>
-            <p>Designed by BootStrapMade</p>
+            <p>Copyright <span>GeekRestau</span> All Rights Reserved</p>
+            <p>Designed by Yahya Jmilou</p>
         </div>
     </footer>
 @endsection

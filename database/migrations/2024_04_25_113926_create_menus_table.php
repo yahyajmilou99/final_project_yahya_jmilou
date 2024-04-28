@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("name");
             $table->integer("price");
             $table->string("description");
-            $table->integer("rating");
+            $table->integer("rating")->nullable();
             $table->string("img");
             $table->timestamps();
         });

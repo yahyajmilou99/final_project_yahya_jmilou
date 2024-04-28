@@ -13,7 +13,7 @@ class MenuController extends Controller
             "name"=>"required",
             "price"=>"required",
             "description"=>"required",
-            "rating"=>"required",
+            "rating"=>"",
             "img"=>'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
@@ -28,6 +28,12 @@ class MenuController extends Controller
             "rating"=>$request->rating,
             "img"=>$imageName
         ]);
-        return back();
+        return back()->with('success', 'Menu added succesfully!');
+    }
+    public function destroy(Menu $menu)
+    {
+        // dd($menu);
+        $menu->delete();
+        return back()->with('success', 'Menu removed succesfully!');
     }
 }

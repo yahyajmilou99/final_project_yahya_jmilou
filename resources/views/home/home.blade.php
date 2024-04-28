@@ -34,6 +34,15 @@
                             <a href="{{ route('contact') }}"
                                 class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:scale-125 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent transition-all">Contact</a>
                         </li>
+                        @if (Auth::check())
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                                <li>
+                                    <button
+                                        class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:scale-125 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent transition-all">LogOut</button>
+                                </li>
+                        </form>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -133,7 +142,7 @@
             </div>
             <div class="sec5bottom">
                 <div class="menu font-bold">
-                    <p >Menu</p>
+                    <p>Menu</p>
                 </div>
                 <div class="menuContent">
                     @foreach ($menus as $menu)
